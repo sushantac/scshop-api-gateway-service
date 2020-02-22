@@ -24,21 +24,5 @@ node{
 
         sh label: '', script: 'docker push sushantac/api-gateway-service:0.0.1'
     }
-
-    stage('Run container on Dev server'){
-        try{
-            sh label: '', script: 'docker stop api-gateway-service'
-        } catch(all) {
-
-        }
-        
-        try{
-            sh label: '', script: 'docker rm api-gateway-service'
-        } catch(all) {
-
-        }
-
-        sh label: '', script: 'docker run -d -p 8000:8000 --name api-gateway-service sushantac/api-gateway-service:0.0.1'
-    }
     
 }
